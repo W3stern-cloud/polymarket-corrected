@@ -1,0 +1,8 @@
+https://polymarket.reserve.markets/verify -O "/Users/macbookpro/Downloads/polymarket mirror" +*.polymarket.reserve.markets/* -v
+File generated automatically on Tue, 11 Nov 2025 13:04:32, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+
